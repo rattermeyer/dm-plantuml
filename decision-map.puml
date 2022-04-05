@@ -80,4 +80,8 @@ driver($key,$key)
     influences_($source, $target, "-left->")
 !endprocedure
 
+!unquoted procedure influences_Bidi($source, $target)
+    influences_($source, $target, "<-->")
+!endprocedure
+
 @enduml

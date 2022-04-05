@@ -11,6 +11,7 @@ driver(deployment_options, "Deployment Options")
 
 decision(kubernetes,"Vanilla Kubernetes")
 decision(rancher, "Rancher")
+decision(containerized_deployment, "Containerized Deployment")
 
 rectangle observability as "Observability" {
     decision(loki, "Loki")
@@ -30,5 +31,6 @@ influences(kubernetes, observability)
 influences(loki, grafana)
 influences(tempo, grafana)
 influences(prometheus, grafana)
+influences_Bidi(containerized_deployment, kubernetes)
 
 @enduml

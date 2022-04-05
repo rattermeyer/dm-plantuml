@@ -1,0 +1,34 @@
+@startuml
+!include ../decision-map.puml
+
+title Decision Map for Kubernetes
+
+driver(market_share, "Market Share")
+driver(multi_service, "Multi Service Products")
+driver(scalability, "Scalability", "Ability to easily scale services up and down")
+driver(efficiency, "Efficiency")
+driver(deployment_options, "Deployment Options")
+
+decision(kubernetes,"Vanilla Kubernetes")
+decision(rancher, "Rancher")
+
+rectangle observability as "Observability" {
+    decision(loki, "Loki")
+    decision(tempo, "Tempo")
+    decision(prometheus, "Prometheus")
+    decision(grafana, "Grafana")
+}
+
+influences(efficiency, kubernetes)
+influences(multi_service, kubernetes)
+influences(scalability, kubernetes)
+influences(market_share, kubernetes)
+influences(deployment_options, kubernetes)
+influences(kubernetes, rancher)
+influences(kubernetes, observability)
+
+influences(loki, grafana)
+influences(tempo, grafana)
+influences(prometheus, grafana)
+
+@enduml

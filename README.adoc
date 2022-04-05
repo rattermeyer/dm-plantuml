@@ -1,0 +1,4 @@
+= Decision Map 
+
+Decision map diagrams show what kind of architectural drivers influence architectural decisions.
+And how an architectural decision might influence other decisions.

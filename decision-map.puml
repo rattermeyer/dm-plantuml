@@ -1,0 +1,83 @@
+@startuml
+
+hide <<decision>> stereotype
+hide <<driver>> stereotype
+
+skinparam arrow {
+    Color Black
+}
+
+skinparam rectangle {
+    BackgroundColor<<decision>> Orange
+    BorderColor<<decision>> Orange
+    BackgroundColor<<driver>> Yellow
+    BorderColor<<driver>> Yellow
+    roundCorner<<driver>> 30
+    shadowing false
+}
+
+skinparam storage {
+    BackgroundColor Yellow
+    BorderColor Yellow
+    shadowing false
+}
+
+!procedure decision($key, $label, $description)
+rectangle $key <<decision>> as "
+**$label**
+!if ($description == "")
+!else
+--
+$description
+!endif
+"
+!endprocedure
+
+!procedure decision($key,$label)
+decision($key,$label,"")
+!endprocedure
+
+!procedure decision($key)
+decision($key,$key)
+!endprocedure
+
+!procedure driver($key,$label,$description)
+storage $key <<driver>> as "
+**$label**
+!if ($description == "")
+!else
+--
+$description
+!endif
+"
+!endprocedure
+
+!procedure driver($key,$label)
+driver($key,$label,"")
+!endprocedure
+
+!procedure driver($key)
+driver($key,$key)
+!endprocedure
+
+!procedure influences_($source, $target, $direction)
+    $source $direction $target
+!endprocedure
+
+!unquoted procedure influences($source, $target)
+    influences_($source, $target, "-->")
+!endprocedure
+
+!unquoted procedure influences_U($source, $target)
+    influences_($source, $target, "-up->")
+!endprocedure
+
+!unquoted procedure influences_R($source, $target)
+    influences_($source, $target, "-right->")
+!endprocedure
+
+!unquoted procedure influences_L($source, $target)
+    influences_($source, $target, "-left->")
+!endprocedure
+
+@enduml

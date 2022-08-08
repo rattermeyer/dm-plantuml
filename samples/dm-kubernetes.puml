@@ -33,4 +33,7 @@ influences(tempo, grafana)
 influences(prometheus, grafana)
 influences_Bidi(containerized_deployment, kubernetes)
 
+supports(grafana, prometheus)
+supports(grafana, loki)
+supports(grafana, tempo)
 @enduml

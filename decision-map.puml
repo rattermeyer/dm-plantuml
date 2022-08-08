@@ -64,6 +64,27 @@ driver($key,$key)
     $source $direction $target
 !endprocedure
 
+!procedure supports_($source, $target, $direction)
+    $source $direction $target
+!endprocedure
+
+!unquoted procedure supports($source, $target)
+    supports_($source, $target, "..>")
+!endprocedure
+
+!unquoted procedure supports_U($source, $target)
+    supports_($source, $target, ".up.>")
+!endprocedure
+
+!unquoted procedure supports_R($source, $target)
+    supports_($source, $target, ".right.>")
+!endprocedure
+
+!unquoted procedure supports_L($source, $target)
+    supports_($source, $target, ".left.>")
+!endprocedure
+
+
 !unquoted procedure influences($source, $target)
     influences_($source, $target, "-->")
 !endprocedure

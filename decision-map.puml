@@ -60,8 +60,12 @@ driver($key,$label,"")
 driver($key,$key)
 !endprocedure
 
-!procedure influences_($source, $target, $direction)
-    $source $direction $target
+!procedure influences_($source, $target, $direction, $label)
+!if ($label == "")
+$source $direction $target
+!else
+$source $direction $target : $label
+!endif
 !endprocedure
 
 !procedure supports_($source, $target, $direction)
@@ -86,23 +90,43 @@ driver($key,$key)
 
 
 !unquoted procedure influences($source, $target)
-    influences_($source, $target, "-->")
+    influences_($source, $target, "-->", "")
+!endprocedure
+
+!unquoted procedure influences($source, $target, $label)
+    influences_($source, $target, "-->", $label)
 !endprocedure
 
 !unquoted procedure influences_U($source, $target)
-    influences_($source, $target, "-up->")
+    influences_($source, $target, "-up->", "")
+!endprocedure
+
+!unquoted procedure influences_U($source, $target, $label)
+    influences_($source, $target, "-up->", $label)
 !endprocedure
 
 !unquoted procedure influences_R($source, $target)
-    influences_($source, $target, "-right->")
+    influences_($source, $target, "-right->", "")
+!endprocedure
+
+!unquoted procedure influences_R($source, $target, $label)
+    influences_($source, $target, "-right->", $label)
 !endprocedure
 
 !unquoted procedure influences_L($source, $target)
-    influences_($source, $target, "-left->")
+    influences_($source, $target, "-left->", "")
+!endprocedure
+
+!unquoted procedure influences_L($source, $target, $label)
+    influences_($source, $target, "-left->", $label)
 !endprocedure
 
 !unquoted procedure influences_Bidi($source, $target)
-    influences_($source, $target, "<-->")
+    influences_($source, $target, "<-->", "")
+!endprocedure
+
+!unquoted procedure influences_Bidi($source, $target, $label)
+    influences_($source, $target, "<-->", $label)
 !endprocedure
 
 @enduml

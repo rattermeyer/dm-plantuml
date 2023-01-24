@@ -9,7 +9,7 @@ driver(scalability, "Scalability", "Ability to easily scale services up and down
 driver(efficiency, "Efficiency")
 driver(deployment_options, "Deployment Options")
 
-decision(kubernetes,"Vanilla Kubernetes")
+decision(kubernetes,"Vanilla Kubernetes", "A container platform for automating software deployment, scaling, and management.")
 decision(rancher, "Rancher")
 decision(containerized_deployment, "Containerized Deployment")
 
@@ -25,8 +25,8 @@ influences(multi_service, kubernetes)
 influences(scalability, kubernetes)
 influences(market_share, kubernetes)
 influences(deployment_options, kubernetes)
-influences(kubernetes, rancher)
-influences(kubernetes, observability)
+influences(kubernetes, rancher, "can be managed by")
+influences(kubernetes, observability, "requires")
 
 influences(loki, grafana)
 influences(tempo, grafana)
